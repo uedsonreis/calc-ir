@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start"> <ion-back-button></ion-back-button> </ion-buttons>
+        <ion-title>Resultado</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle> <b>Total de Imposto a Pagar</b> </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content> <b>R$ {{pagador.totalAPagar.toFixed(2)}}</b> </ion-card-content>
+    </ion-card>
+    
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle>Faixa até R$ {{tabela.faixaIsento}} (Isento)</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content> R$ {{pagador.valorFaixaIsento}} * 0% = R$ 0.00 </ion-card-content>
+    </ion-card>
+    
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle> Faixa entre R$ {{tabela.faixaIsento.toFixed(2)}} e R$ {{tetoFaixa075()}} </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content> R$ {{pagador.valorFaixa075.toFixed(2)}} * 7.5% = R$ {{(pagador.valorFaixa075 * 0.075).toFixed(2)}} </ion-card-content>
+    </ion-card>
+    
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle> Faixa entre R$ {{tetoFaixa075()}} e R$ {{tetoFaixa150()}} </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content> R$ {{pagador.valorFaixa150.toFixed(2)}} * 15% = R$ {{(pagador.valorFaixa150 * 0.15).toFixed(2)}} </ion-card-content>
+    </ion-card>
+    
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle> Faixa entre R$ {{tetoFaixa150()}} e R$ {{tetoFaixa225()}} </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content> R$ {{pagador.valorFaixa225.toFixed(2)}} * 22.5% = R$ {{(pagador.valorFaixa225 * 0.225).toFixed(2)}} </ion-card-content>
+    </ion-card>
+    
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle> Faixa acima de R$ {{tetoFaixa225()}} </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content> R$ {{pagador.valorFaixa275.toFixed(2)}} * 27.5% = R$ {{(pagador.valorFaixa275 * 0.275).toFixed(2)}} </ion-card-content>
+    </ion-card>
+
+</ion-content>
