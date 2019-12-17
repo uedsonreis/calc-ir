@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start"> <ion-menu-button></ion-menu-button> </ion-buttons>
+        <ion-title>Tabela {{tabela.anoExercicio}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>Faixas IRPF</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p>Faixa de ISENTO igual ou inferior a: R$ {{tabela.faixaIsento.toFixed(2)}}</p>
+            <p>Faixa de 7.5% igual ou inferior a: R$ {{faixa075().toFixed(2)}}</p>
+            <p>Faixa de 15% igual ou inferior a: R$ {{faixa150().toFixed(2)}}</p>
+            <p>Faixa de 22.5% igual ou inferior a: R$ {{faixa225().toFixed(2)}}</p>
+            <p>Faixa de 27.5% superior a: R$ {{faixa225().toFixed(2)}}</p>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>Tetos de Dedução</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p>Educação: R$ {{tabela.tetoEducacao.toFixed(2)}}</p>
+            <p>Investimento em PGBL: 12%</p>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>INSS</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p>Faixa de 8% igual ou inferior a: R$ {{inssLimite1()}}</p>
+            <p>Faixa de 9% igual ou inferior a: R$ {{inssLimite2()}}</p>
+            <p>Faixa de 11% igual ou inferior a: R$ {{inssLimite3()}}</p>
+            <p>Valor fixo de R$ {{inssAcimaLimite()}} acima de: R$ {{inssLimite3()}}</p>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

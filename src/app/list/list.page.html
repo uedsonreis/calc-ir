@@ -1,27 +1,30 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      List
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start"> <ion-menu-button></ion-menu-button> </ion-buttons>
+        <ion-title> Histórico </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
+    <ion-list>
+        <ion-item-sliding *ngFor="let pagador of tabela.recebeuDe">
+
+            <ion-item (click)="open(pagador)">
+                <ion-label> {{pagador.nome}} </ion-label>
+                <div class="item-note" slot="end">
+                    <ion-label>
+                        <p>Ganho Anual: R$ {{pagador.ganhoAnual.toFixed(2)}}</p>
+                        <p>Total a Pagar: R$ {{pagador.totalAPagar.toFixed(2)}}</p>
+                    </ion-label>    
+                </div>
+            </ion-item>
+
+            <ion-item-options side="end">
+                <ion-item-option color="danger" (click)="delete(pagador)">
+                    <ion-icon name="trash" size="large"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+
+        </ion-item-sliding>
+    </ion-list>
 </ion-content>

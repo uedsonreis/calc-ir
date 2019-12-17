@@ -12,21 +12,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { Tabela } from 'src/model/tabela';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(),
-    IonicStorageModule.forRoot({
-      name: '__mydb',
-      driverOrder: ['indexeddb', 'sqlite', 'websql']
-    }),
-    AppRoutingModule
-  ],
-  providers: [
-    StatusBar, SplashScreen, Tabela,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
-  ],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent],
+    entryComponents: [],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(),
+        IonicStorageModule.forRoot({
+            name: '__mydb',
+            driverOrder: ['indexeddb', 'sqlite', 'websql']
+        }),
+        AppRoutingModule
+    ],
+    providers: [
+        StatusBar, SplashScreen, Tabela,
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,41 +1,42 @@
 <ion-header>
-  <ion-toolbar color="dark">
-    <ion-buttons slot="start"> <ion-menu-button></ion-menu-button> </ion-buttons>
-    <ion-title>{{getTitle()}}</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start"> <ion-back-button></ion-back-button> </ion-buttons>
+        <ion-buttons slot="start"> <ion-menu-button></ion-menu-button> </ion-buttons>
+        <ion-title>{{getTitle()}}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-list>
-    <ion-item>
-        <ion-label position="floating">Nome</ion-label>
-        <ion-input type="text" [(ngModel)]="pagador.nome"></ion-input>
-    </ion-item>
-    
-    <ion-item>
-        <ion-label position="floating">Ganho Anual (R$)</ion-label>
-        <ion-input type="number" pattern="[0-9]*" [(ngModel)]="pagador.ganhoAnual"></ion-input>
-    </ion-item>
-    
-    <ion-item>
-        <ion-label position="floating">Gastos com Educação (R$)</ion-label>
-        <ion-input type="number" pattern="[0-9]*" [(ngModel)]="educacao.valor"></ion-input>
-    </ion-item>
+    <ion-list>
+        <ion-item>
+            <ion-label position="floating">Nome</ion-label>
+            <ion-input type="text" [(ngModel)]="pagador.nome"></ion-input>
+        </ion-item>
 
-    <ion-item>
-        <ion-label position="floating">Gastos com Saúde (R$)</ion-label>
-        <ion-input type="number" pattern="[0-9]*" [(ngModel)]="saude.valor"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-label position="floating">Ganho Anual (R$)</ion-label>
+            <ion-input type="number" pattern="[0-9]*" [(ngModel)]="pagador.ganhoAnual"></ion-input>
+        </ion-item>
 
-    <ion-item>
-        <ion-label position="floating">Demais Deduções (R$)</ion-label>
-        <ion-input type="number" pattern="[0-9]*" [(ngModel)]="demais.valor"></ion-input>
-    </ion-item>
-  </ion-list>
+        <ion-item>
+            <ion-label position="floating">Gastos com Educação (R$)</ion-label>
+            <ion-input type="number" pattern="[0-9]*" [(ngModel)]="educacao.valor"></ion-input>
+        </ion-item>
 
-  <ion-button (click)="calculate()" color="success" expand="block">
-      <ion-icon name="flash"></ion-icon> &nbsp; Calcular
-  </ion-button>
+        <ion-item>
+            <ion-label position="floating">Gastos com Saúde (R$)</ion-label>
+            <ion-input type="number" pattern="[0-9]*" [(ngModel)]="saude.valor"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Demais Deduções (R$)</ion-label>
+            <ion-input type="number" pattern="[0-9]*" [(ngModel)]="demais.valor"></ion-input>
+        </ion-item>
+    </ion-list>
+
+    <ion-button (click)="calculate()" color="primary" expand="block">
+        <ion-icon name="flash"></ion-icon> &nbsp; Calcular
+    </ion-button>
 
 </ion-content>

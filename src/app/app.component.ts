@@ -5,26 +5,27 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss']
+    selector: 'app-root',
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.scss']
 })
 export class AppComponent {
 
-  public appPages = [
-    { title: 'Histórico', url: '/home', icon: 'list' },
-    { title: 'Novo', url: '/calculate', icon: 'add' }
-  ];
+    public appPages = [
+        { title: 'Histórico', url: '/list', icon: 'list' },
+        { title: 'Novo', url: '/calculate', icon: 'add' },
+        { title: 'Tabela', url: '/table', icon: 'grid' }
+    ];
 
-  constructor(private platform: Platform, private splashScreen: SplashScreen, private statusBar: StatusBar) {
-    this.initializeApp();
-  }
+    constructor(private platform: Platform, private splashScreen: SplashScreen, private statusBar: StatusBar) {
+        this.initializeApp();
+    }
 
-  private initializeApp(): void {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-  }
+    private initializeApp(): void {
+        this.platform.ready().then(() => {
+            this.statusBar.styleDefault();
+            this.splashScreen.hide();
+        });
+    }
 
 }

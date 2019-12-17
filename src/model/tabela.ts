@@ -3,10 +3,10 @@ import { Deducao } from './deducao';
 
 export class Tabela {
 
-  private static readonly taxaPadraoINSS = 0.11;
-  private static readonly inssLimite1 = 1659.38 * 13;
-  private static readonly inssLimite2 = 2765.66 * 13;
-  private static readonly inssLimite3 = 5531.31 * 13;
+  public static readonly taxaPadraoINSS = 0.11;
+  public static readonly inssLimite1 = 1751.81 * 13; //1659.38 * 13;
+  public static readonly inssLimite2 = 2919.72 * 13; //2765.66 * 13;
+  public static readonly inssLimite3 = 5839.45 * 13; //5531.31 * 13;
 
   public static readonly INSS: number = 0.11;
   public static readonly P075: number = 0.075;
@@ -14,7 +14,7 @@ export class Tabela {
   public static readonly P225: number = 0.225;
   public static readonly P275: number = 0.275;
 
-  public anoExercicio: number = 2017;
+  public anoExercicio: number = 2019;
   public faixaIsento: number = 22847.76;
   public faixa075: number = 11072.04; // 22.847,76 - 33.919,80
   public faixa150: number = 11092.80; // 33.919,80 - 45.012,60
