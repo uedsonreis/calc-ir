@@ -11,7 +11,7 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class ListPage implements OnInit {
 
-    private tabela: Tabela;
+    tabela: Tabela;
 
     constructor(private dao: TableService, private router: Router) {}
 

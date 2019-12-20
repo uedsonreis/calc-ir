@@ -12,10 +12,10 @@ import { TableService } from '../dao/table.service';
 })
 export class CalculatePage implements OnInit {
 
-    private pagador: Pagador;
-    private educacao: Deducao;
-    private saude: Deducao;
-    private demais: Deducao;
+    pagador: Pagador;
+    educacao: Deducao;
+    saude: Deducao;
+    demais: Deducao;
 
     constructor(private router: Router, private dao: TableService) {}
 

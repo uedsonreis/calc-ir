@@ -9,7 +9,7 @@ import { Tabela } from 'src/model/tabela';
 })
 export class TablePage implements OnInit {
 
-    private tabela: Tabela;
+    tabela: Tabela;
 
     constructor(private dao: TableService) {}
 

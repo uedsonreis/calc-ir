@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 })
 export class ResultPage implements OnInit {
 
-    private tabela: Tabela;
-    private pagador: Pagador;
+    tabela: Tabela;
+    pagador: Pagador;
 
     constructor(private router: Router, private dao: TableService) {}
 
