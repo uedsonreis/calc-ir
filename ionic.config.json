@@ -1,5 +1,7 @@
 {
   "name": "calc-ir",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
