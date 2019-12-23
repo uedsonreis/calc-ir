@@ -1,56 +1,184 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[8],{
 
-/***/ "./node_modules/@ionic/core/dist/esm/ion-avatar_3-md.entry.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/ion-avatar_3-md.entry.js ***!
-  \********************************************************************/
-/*! exports provided: ion_avatar, ion_badge, ion_thumbnail */
+/***/ "./node_modules/raw-loader/index.js!./src/app/calculate/calculate.page.html":
+/*!*************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/calculate/calculate.page.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n    <ion-toolbar color=\"dark\">\n        <ion-buttons slot=\"start\"> <ion-back-button></ion-back-button> </ion-buttons>\n        <ion-buttons slot=\"start\"> <ion-menu-button></ion-menu-button> </ion-buttons>\n        <ion-title>{{getTitle()}}</ion-title>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-list>\n        <ion-item>\n            <ion-label position=\"floating\">Nome</ion-label>\n            <ion-input type=\"text\" [(ngModel)]=\"pagador.nome\"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label position=\"floating\">Ganho Anual (R$)</ion-label>\n            <ion-input type=\"number\" pattern=\"[0-9]*\" [(ngModel)]=\"pagador.ganhoAnual\"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label position=\"floating\">Gastos com Educação (R$)</ion-label>\n            <ion-input type=\"number\" pattern=\"[0-9]*\" [(ngModel)]=\"educacao.valor\"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label position=\"floating\">Gastos com Saúde (R$)</ion-label>\n            <ion-input type=\"number\" pattern=\"[0-9]*\" [(ngModel)]=\"saude.valor\"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label position=\"floating\">Demais Deduções (R$)</ion-label>\n            <ion-input type=\"number\" pattern=\"[0-9]*\" [(ngModel)]=\"demais.valor\"></ion-input>\n        </ion-item>\n    </ion-list>\n\n    <ion-button (click)=\"calculate()\" color=\"primary\" expand=\"block\">\n        <ion-icon name=\"flash\"></ion-icon> &nbsp; Calcular\n    </ion-button>\n\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/calculate/calculate.module.ts":
+/*!***********************************************!*\
+  !*** ./src/app/calculate/calculate.module.ts ***!
+  \***********************************************/
+/*! exports provided: CalculatePageModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_avatar", function() { return Avatar; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_badge", function() { return Badge; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_thumbnail", function() { return Thumbnail; });
-/* harmony import */ var _core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-feeeff0d.js */ "./node_modules/@ionic/core/dist/esm/core-feeeff0d.js");
-/* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
-/* harmony import */ var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./theme-18cbe2cc.js */ "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CalculatePageModule", function() { return CalculatePageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _calculate_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./calculate.page */ "./src/app/calculate/calculate.page.ts");
 
 
 
 
-const Avatar = class {
-    constructor(hostRef) {
-        Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-    }
-    render() {
-        return (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["H"], { class: Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this) }, Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null)));
-    }
-    static get style() { return ":host{border-radius:var(--border-radius);display:block}::slotted(img),::slotted(ion-img){border-radius:var(--border-radius);width:100%;height:100%;-o-object-fit:cover;object-fit:cover;overflow:hidden}:host{--border-radius:50%;width:64px;height:64px}"; }
+
+
+
+let CalculatePageModule = class CalculatePageModule {
 };
+CalculatePageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild([{ path: '', component: _calculate_page__WEBPACK_IMPORTED_MODULE_6__["CalculatePage"] }])
+        ],
+        declarations: [_calculate_page__WEBPACK_IMPORTED_MODULE_6__["CalculatePage"]]
+    })
+], CalculatePageModule);
 
-const Badge = class {
-    constructor(hostRef) {
-        Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+
+
+/***/ }),
+
+/***/ "./src/app/calculate/calculate.page.scss":
+/*!***********************************************!*\
+  !*** ./src/app/calculate/calculate.page.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-button {\n  margin: 15px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy91ZWRzb25yZWlzL0RvY3VtZW50cy9Qcm9qZXRvcy9hZGQvY2FsYy1pci9zcmMvYXBwL2NhbGN1bGF0ZS9jYWxjdWxhdGUucGFnZS5zY3NzIiwic3JjL2FwcC9jYWxjdWxhdGUvY2FsY3VsYXRlLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTtFQUNJLFlBQUE7QUNBSiIsImZpbGUiOiJzcmMvYXBwL2NhbGN1bGF0ZS9jYWxjdWxhdGUucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXG5pb24tYnV0dG9uIHtcbiAgICBtYXJnaW46IDE1cHg7XG59IiwiaW9uLWJ1dHRvbiB7XG4gIG1hcmdpbjogMTVweDtcbn0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/calculate/calculate.page.ts":
+/*!*********************************************!*\
+  !*** ./src/app/calculate/calculate.page.ts ***!
+  \*********************************************/
+/*! exports provided: CalculatePage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CalculatePage", function() { return CalculatePage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var src_model_pagador__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/model/pagador */ "./src/model/pagador.ts");
+/* harmony import */ var src_model_deducao__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/model/deducao */ "./src/model/deducao.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _dao_table_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../dao/table.service */ "./src/app/dao/table.service.ts");
+
+
+
+
+
+
+let CalculatePage = class CalculatePage {
+    constructor(router, dao) {
+        this.router = router;
+        this.dao = dao;
     }
-    render() {
-        const mode = Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-        return (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["H"], { class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_2__["c"])(this.color)), { [mode]: true }) }, Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null)));
+    ngOnInit() {
+        const state = this.router.getCurrentNavigation().extras.state;
+        if (state === undefined || state === null) {
+            this.pagador = new src_model_pagador__WEBPACK_IMPORTED_MODULE_2__["Pagador"]();
+            this.saude = new src_model_deducao__WEBPACK_IMPORTED_MODULE_3__["Deducao"]();
+            this.demais = new src_model_deducao__WEBPACK_IMPORTED_MODULE_3__["Deducao"]();
+            this.educacao = new src_model_deducao__WEBPACK_IMPORTED_MODULE_3__["Deducao"]();
+            this.educacao.teto = this.dao.tabela.tetoEducacao;
+            this.pagador.pagou.push(this.educacao);
+            this.pagador.pagou.push(this.saude);
+            this.pagador.pagou.push(this.demais);
+        }
+        else {
+            this.pagador = state.pagador;
+            this.educacao = this.pagador.pagou[0];
+            this.saude = this.pagador.pagou[1];
+            this.demais = this.pagador.pagou[2];
+        }
     }
-    static get style() { return ":host{--background:var(--ion-color-primary,#3880ff);--color:var(--ion-color-primary-contrast,#fff);--padding-end:8px;--padding-bottom:3px;--padding-start:8px;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;padding-left:var(--padding-start);padding-right:var(--padding-end);padding-top:var(--padding-top);padding-bottom:var(--padding-bottom);display:inline-block;min-width:10px;background:var(--background);color:var(--color);font-family:var(--ion-font-family,inherit);font-size:13px;font-weight:700;line-height:1;text-align:center;white-space:nowrap;contain:content;vertical-align:baseline}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--padding-start);padding-inline-start:var(--padding-start);-webkit-padding-end:var(--padding-end);padding-inline-end:var(--padding-end)}}:host(.ion-color){background:var(--ion-color-base);color:var(--ion-color-contrast)}:host(:empty){display:none}:host{--padding-top:3px;--padding-end:4px;--padding-bottom:4px;--padding-start:4px;border-radius:4px}"; }
+    getTitle() {
+        if ((this.pagador.nome === null) || this.pagador.nome === undefined) {
+            return "Novo Cálculo";
+        }
+        else {
+            return this.pagador.nome;
+        }
+    }
+    calculate() {
+        if ((this.pagador.ganhoAnual === undefined) || (this.pagador.ganhoAnual <= 0)) {
+            this.pagador.ganhoAnual = 0.00;
+        }
+        this.pagador.pagou.forEach(deducao => {
+            if ((deducao.valor === undefined) || (deducao.valor <= 0)) {
+                deducao.valor = 0.00;
+            }
+        });
+        const options = { state: { pagador: this.pagador } };
+        this.router.navigate(["result"], options);
+    }
 };
+CalculatePage.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: _dao_table_service__WEBPACK_IMPORTED_MODULE_5__["TableService"] }
+];
+CalculatePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-calculate',
+        template: __webpack_require__(/*! raw-loader!./calculate.page.html */ "./node_modules/raw-loader/index.js!./src/app/calculate/calculate.page.html"),
+        styles: [__webpack_require__(/*! ./calculate.page.scss */ "./src/app/calculate/calculate.page.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _dao_table_service__WEBPACK_IMPORTED_MODULE_5__["TableService"]])
+], CalculatePage);
 
-const Thumbnail = class {
-    constructor(hostRef) {
-        Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+
+
+/***/ }),
+
+/***/ "./src/model/deducao.ts":
+/*!******************************!*\
+  !*** ./src/model/deducao.ts ***!
+  \******************************/
+/*! exports provided: Deducao */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Deducao", function() { return Deducao; });
+class Deducao {
+}
+
+
+/***/ }),
+
+/***/ "./src/model/pagador.ts":
+/*!******************************!*\
+  !*** ./src/model/pagador.ts ***!
+  \******************************/
+/*! exports provided: Pagador */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Pagador", function() { return Pagador; });
+class Pagador {
+    constructor() {
+        this.pagou = new Array();
     }
-    render() {
-        return (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["H"], { class: Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this) }, Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null)));
-    }
-    static get style() { return ":host{--size:48px;--border-radius:0;border-radius:var(--border-radius);display:block;width:var(--size);height:var(--size)}::slotted(img),::slotted(ion-img){border-radius:var(--border-radius);width:100%;height:100%;-o-object-fit:cover;object-fit:cover;overflow:hidden}"; }
-};
-
-
+}
 
 
 /***/ })

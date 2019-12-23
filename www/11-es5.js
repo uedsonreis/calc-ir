@@ -1,109 +1,129 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[11],{
 
-/***/ "./node_modules/@ionic/core/dist/esm-es5/ion-back-button-ios.entry.js":
-/*!****************************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm-es5/ion-back-button-ios.entry.js ***!
-  \****************************************************************************/
-/*! exports provided: ion_back_button */
+/***/ "./node_modules/raw-loader/index.js!./src/app/result/result.page.html":
+/*!*******************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/result/result.page.html ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n    <ion-toolbar color=\"dark\">\n        <ion-buttons slot=\"start\"> <ion-back-button></ion-back-button> </ion-buttons>\n        <ion-title>Resultado</ion-title>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-card>\n        <ion-card-header>\n            <ion-card-subtitle> <b>Total de Imposto a Pagar</b> </ion-card-subtitle>\n        </ion-card-header>\n        <ion-card-content> <b>R$ {{pagador.totalAPagar.toFixed(2)}}</b> </ion-card-content>\n    </ion-card>\n    \n    <ion-card>\n        <ion-card-header>\n            <ion-card-subtitle>Faixa até R$ {{tabela.faixaIsento}} (Isento)</ion-card-subtitle>\n        </ion-card-header>\n        <ion-card-content> R$ {{pagador.valorFaixaIsento}} * 0% = R$ 0.00 </ion-card-content>\n    </ion-card>\n    \n    <ion-card>\n        <ion-card-header>\n            <ion-card-subtitle> Faixa entre R$ {{tabela.faixaIsento.toFixed(2)}} e R$ {{tetoFaixa075()}} </ion-card-subtitle>\n        </ion-card-header>\n        <ion-card-content> R$ {{pagador.valorFaixa075.toFixed(2)}} * 7.5% = R$ {{(pagador.valorFaixa075 * 0.075).toFixed(2)}} </ion-card-content>\n    </ion-card>\n    \n    <ion-card>\n        <ion-card-header>\n            <ion-card-subtitle> Faixa entre R$ {{tetoFaixa075()}} e R$ {{tetoFaixa150()}} </ion-card-subtitle>\n        </ion-card-header>\n        <ion-card-content> R$ {{pagador.valorFaixa150.toFixed(2)}} * 15% = R$ {{(pagador.valorFaixa150 * 0.15).toFixed(2)}} </ion-card-content>\n    </ion-card>\n    \n    <ion-card>\n        <ion-card-header>\n            <ion-card-subtitle> Faixa entre R$ {{tetoFaixa150()}} e R$ {{tetoFaixa225()}} </ion-card-subtitle>\n        </ion-card-header>\n        <ion-card-content> R$ {{pagador.valorFaixa225.toFixed(2)}} * 22.5% = R$ {{(pagador.valorFaixa225 * 0.225).toFixed(2)}} </ion-card-content>\n    </ion-card>\n    \n    <ion-card>\n        <ion-card-header>\n            <ion-card-subtitle> Faixa acima de R$ {{tetoFaixa225()}} </ion-card-subtitle>\n        </ion-card-header>\n        <ion-card-content> R$ {{pagador.valorFaixa275.toFixed(2)}} * 27.5% = R$ {{(pagador.valorFaixa275 * 0.275).toFixed(2)}} </ion-card-content>\n    </ion-card>\n\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/result/result.module.ts":
+/*!*****************************************!*\
+  !*** ./src/app/result/result.module.ts ***!
+  \*****************************************/
+/*! exports provided: ResultPageModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_back_button", function() { return BackButton; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResultPageModule", function() { return ResultPageModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./core-feeeff0d.js */ "./node_modules/@ionic/core/dist/esm-es5/core-feeeff0d.js");
-/* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm-es5/config-3c7f3790.js");
-/* harmony import */ var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme-18cbe2cc.js */ "./node_modules/@ionic/core/dist/esm-es5/theme-18cbe2cc.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _result_page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./result.page */ "./src/app/result/result.page.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
 
 
 
-var BackButton = /** @class */ (function () {
-    function class_1(hostRef) {
-        var _this = this;
-        Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_1__["r"])(this, hostRef);
-        this.mode = Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_1__["c"])(this);
-        /**
-         * If `true`, the user cannot interact with the button.
-         */
-        this.disabled = false;
-        /**
-         * The type of the button.
-         */
-        this.type = 'button';
-        this.onClick = function (ev) { return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(_this, void 0, void 0, function () {
-            var nav, _a;
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"])(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        nav = this.el.closest('ion-nav');
-                        ev.preventDefault();
-                        _a = nav;
-                        if (!_a) return [3 /*break*/, 2];
-                        return [4 /*yield*/, nav.canGoBack()];
-                    case 1:
-                        _a = (_b.sent());
-                        _b.label = 2;
-                    case 2:
-                        if (_a) {
-                            return [2 /*return*/, nav.pop({ skipIfBusy: true })];
-                        }
-                        return [2 /*return*/, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["o"])(this.defaultHref, ev, 'back')];
-                }
-            });
-        }); };
+
+
+
+var ResultPageModule = /** @class */ (function () {
+    function ResultPageModule() {
     }
-    Object.defineProperty(class_1.prototype, "backButtonIcon", {
-        get: function () {
-            return this.icon != null ? this.icon : _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_2__["b"].get('backButtonIcon', 'arrow-back');
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(class_1.prototype, "backButtonText", {
-        get: function () {
-            var defaultBackButtonText = this.mode === 'ios' ? 'Back' : null;
-            return this.text != null ? this.text : _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_2__["b"].get('backButtonText', defaultBackButtonText);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(class_1.prototype, "hasIconOnly", {
-        get: function () {
-            return this.backButtonIcon && !this.backButtonText;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(class_1.prototype, "rippleType", {
-        get: function () {
-            // If the button only has an icon we use the unbounded
-            // "circular" ripple effect
-            if (this.hasIconOnly) {
-                return 'unbounded';
-            }
-            return 'bounded';
-        },
-        enumerable: true,
-        configurable: true
-    });
-    class_1.prototype.render = function () {
-        var _a;
-        var _b = this, color = _b.color, defaultHref = _b.defaultHref, disabled = _b.disabled, type = _b.type, mode = _b.mode, hasIconOnly = _b.hasIconOnly, backButtonIcon = _b.backButtonIcon, backButtonText = _b.backButtonText;
-        var showBackButton = defaultHref !== undefined;
-        return (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_1__["h"])(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_1__["H"], { onClick: this.onClick, class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["c"])(color)), (_a = {}, _a[mode] = true, _a['button'] = true, _a['back-button-disabled'] = disabled, _a['back-button-has-icon-only'] = hasIconOnly, _a['ion-activatable'] = true, _a['ion-focusable'] = true, _a['show-back-button'] = showBackButton, _a)) }, Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_1__["h"])("button", { type: type, disabled: disabled, class: "button-native" }, Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_1__["h"])("span", { class: "button-inner" }, backButtonIcon && Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_1__["h"])("ion-icon", { icon: backButtonIcon, lazy: false }), backButtonText && Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_1__["h"])("span", { class: "button-text" }, backButtonText)), mode === 'md' && Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_1__["h"])("ion-ripple-effect", { type: this.rippleType }))));
+    ResultPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forChild([{ path: '', component: _result_page__WEBPACK_IMPORTED_MODULE_5__["ResultPage"] }])
+            ],
+            declarations: [_result_page__WEBPACK_IMPORTED_MODULE_5__["ResultPage"]]
+        })
+    ], ResultPageModule);
+    return ResultPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/result/result.page.scss":
+/*!*****************************************!*\
+  !*** ./src/app/result/result.page.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Jlc3VsdC9yZXN1bHQucGFnZS5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/result/result.page.ts":
+/*!***************************************!*\
+  !*** ./src/app/result/result.page.ts ***!
+  \***************************************/
+/*! exports provided: ResultPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResultPage", function() { return ResultPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _dao_table_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../dao/table.service */ "./src/app/dao/table.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+
+var ResultPage = /** @class */ (function () {
+    function ResultPage(router, dao) {
+        this.router = router;
+        this.dao = dao;
+    }
+    ResultPage.prototype.ngOnInit = function () {
+        this.pagador = this.router.getCurrentNavigation().extras.state.pagador;
+        this.tabela = this.dao.tabela;
+        this.pagador.valorFaixaIsento = 0.0;
+        this.pagador.valorFaixa075 = 0.0;
+        this.pagador.valorFaixa150 = 0.0;
+        this.pagador.valorFaixa225 = 0.0;
+        this.pagador.valorFaixa275 = 0.0;
+        this.pagador.totalAPagar = 0.0;
+        this.tabela.calcularIRPF(this.pagador);
+        this.dao.commit();
     };
-    Object.defineProperty(class_1.prototype, "el", {
-        get: function () { return Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_1__["e"])(this); },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(class_1, "style", {
-        get: function () { return ".sc-ion-back-button-ios-h{--background:transparent;--color-focused:var(--color);--color-hover:var(--color);--icon-margin-top:0;--icon-margin-bottom:0;--icon-padding-top:0;--icon-padding-end:0;--icon-padding-bottom:0;--icon-padding-start:0;--margin-top:0;--margin-end:0;--margin-bottom:0;--margin-start:0;--min-width:auto;--min-height:auto;--padding-top:0;--padding-end:0;--padding-bottom:0;--padding-start:0;--opacity:1;--ripple-color:currentColor;--transition:background-color,opacity 100ms linear;display:none;min-width:var(--min-width);min-height:var(--min-height);color:var(--color);font-family:var(--ion-font-family,inherit);text-align:center;text-decoration:none;text-overflow:ellipsis;text-transform:none;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-font-kerning:none;font-kerning:none}.ion-color.sc-ion-back-button-ios-h .button-native.sc-ion-back-button-ios{color:var(--ion-color-base)}.show-back-button.sc-ion-back-button-ios-h, .can-go-back.sc-ion-back-button-ios-h > ion-header.sc-ion-back-button-ios, .can-go-back > ion-header .sc-ion-back-button-ios-h{display:block}.back-button-disabled.sc-ion-back-button-ios-h{cursor:default;opacity:.5;pointer-events:none}.button-native.sc-ion-back-button-ios{border-radius:var(--border-radius);-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;margin-left:var(--margin-start);margin-right:var(--margin-end);margin-top:var(--margin-top);margin-bottom:var(--margin-bottom);padding-left:var(--padding-start);padding-right:var(--padding-end);padding-top:var(--padding-top);padding-bottom:var(--padding-bottom);font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;text-decoration:inherit;text-overflow:inherit;text-transform:inherit;text-align:inherit;white-space:inherit;color:inherit;display:block;position:relative;width:100%;height:100%;min-height:inherit;-webkit-transition:var(--transition);transition:var(--transition);border:0;outline:none;background:var(--background);line-height:1;cursor:pointer;opacity:var(--opacity);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:0;-webkit-appearance:none;-moz-appearance:none;appearance:none}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.button-native.sc-ion-back-button-ios{margin-left:unset;margin-right:unset;-webkit-margin-start:var(--margin-start);margin-inline-start:var(--margin-start);-webkit-margin-end:var(--margin-end);margin-inline-end:var(--margin-end);padding-left:unset;padding-right:unset;-webkit-padding-start:var(--padding-start);padding-inline-start:var(--padding-start);-webkit-padding-end:var(--padding-end);padding-inline-end:var(--padding-end)}}.button-inner.sc-ion-back-button-ios{display:-ms-flexbox;display:flex;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-ms-flex-negative:0;flex-shrink:0;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;width:100%;height:100%}ion-icon.sc-ion-back-button-ios{padding-left:var(--icon-padding-start);padding-right:var(--icon-padding-end);padding-top:var(--icon-padding-top);padding-bottom:var(--icon-padding-bottom);margin-left:var(--icon-margin-start);margin-right:var(--icon-margin-end);margin-top:var(--icon-margin-top);margin-bottom:var(--icon-margin-bottom);display:inherit;font-size:var(--icon-font-size);font-weight:var(--icon-font-weight);pointer-events:none}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){ion-icon.sc-ion-back-button-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--icon-padding-start);padding-inline-start:var(--icon-padding-start);-webkit-padding-end:var(--icon-padding-end);padding-inline-end:var(--icon-padding-end);margin-left:unset;margin-right:unset;-webkit-margin-start:var(--icon-margin-start);margin-inline-start:var(--icon-margin-start);-webkit-margin-end:var(--icon-margin-end);margin-inline-end:var(--icon-margin-end)}}\@media (any-hover:hover){.sc-ion-back-button-ios-h:hover .button-native.sc-ion-back-button-ios{background:var(--background-hover);color:var(--color-hover)}}.ion-focused.sc-ion-back-button-ios-h .button-native.sc-ion-back-button-ios{background:var(--background-focused);color:var(--color-focused)}\@media (any-hover:hover){.ion-color.sc-ion-back-button-ios-h:hover .button-native.sc-ion-back-button-ios{color:var(--ion-color-base)}}.ion-color.ion-focused.sc-ion-back-button-ios-h .button-native.sc-ion-back-button-ios{color:var(--ion-color-base)}ion-toolbar.sc-ion-back-button-ios-h:not(.ion-color):not(.ion-color), ion-toolbar:not(.ion-color) .sc-ion-back-button-ios-h:not(.ion-color){color:var(--ion-toolbar-color,var(--color))}.sc-ion-back-button-ios-h{--background-focused:rgba(var(--ion-color-primary-rgb,56,128,255),0.1);--border-radius:4px;--color:var(--ion-color-primary,#3880ff);--icon-margin-end:-5px;--icon-margin-start:-4px;--icon-font-size:1.85em;--min-height:32px;font-size:17px}.button-native.sc-ion-back-button-ios{-webkit-transform:translateZ(0);transform:translateZ(0);overflow:visible;z-index:99}.activated.sc-ion-back-button-ios-h .button-native.sc-ion-back-button-ios{opacity:.4}\@media (any-hover:hover){.sc-ion-back-button-ios-h:hover{--opacity:.6}}.ion-color.ion-focused.sc-ion-back-button-ios-h .button-native.sc-ion-back-button-ios{background:rgba(var(--ion-color-base-rgb),.1)}"; },
-        enumerable: true,
-        configurable: true
-    });
-    return class_1;
+    ResultPage.prototype.tetoFaixa075 = function () {
+        return (this.tabela.faixaIsento + this.tabela.faixa075).toFixed(2);
+    };
+    ResultPage.prototype.tetoFaixa150 = function () {
+        return (this.tabela.faixaIsento + this.tabela.faixa075 + this.tabela.faixa150).toFixed(2);
+    };
+    ResultPage.prototype.tetoFaixa225 = function () {
+        return (this.tabela.faixaIsento + this.tabela.faixa075 + this.tabela.faixa150 + this.tabela.faixa225).toFixed(2);
+    };
+    ResultPage.ctorParameters = function () { return [
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+        { type: _dao_table_service__WEBPACK_IMPORTED_MODULE_2__["TableService"] }
+    ]; };
+    ResultPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-result',
+            template: __webpack_require__(/*! raw-loader!./result.page.html */ "./node_modules/raw-loader/index.js!./src/app/result/result.page.html"),
+            styles: [__webpack_require__(/*! ./result.page.scss */ "./src/app/result/result.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _dao_table_service__WEBPACK_IMPORTED_MODULE_2__["TableService"]])
+    ], ResultPage);
+    return ResultPage;
 }());
 
 

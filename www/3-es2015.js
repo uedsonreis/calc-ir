@@ -1,376 +1,1125 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
 
-/***/ "./node_modules/@ionic/core/dist/esm/ion-alert-ios.entry.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/ion-alert-ios.entry.js ***!
-  \******************************************************************/
-/*! exports provided: ion_alert */
+/***/ "./node_modules/@ionic/core/dist/esm/index-69c37885.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/index-69c37885.js ***!
+  \*************************************************************/
+/*! exports provided: create */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_alert", function() { return Alert; });
-/* harmony import */ var _core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-feeeff0d.js */ "./node_modules/@ionic/core/dist/esm/core-feeeff0d.js");
-/* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
-/* harmony import */ var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-46f4a262.js */ "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
-/* harmony import */ var _animation_af478fe9_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./animation-af478fe9.js */ "./node_modules/@ionic/core/dist/esm/animation-af478fe9.js");
-/* harmony import */ var _overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./overlays-10640d86.js */ "./node_modules/@ionic/core/dist/esm/overlays-10640d86.js");
-/* harmony import */ var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./theme-18cbe2cc.js */ "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
-/* harmony import */ var _index_3476b023_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./index-3476b023.js */ "./node_modules/@ionic/core/dist/esm/index-3476b023.js");
-
-
-
-
-
-
-
-
-/**
- * iOS Alert Enter Animation
- */
-const iosEnterAnimation = (baseEl) => {
-    const baseAnimation = Object(_animation_af478fe9_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    const backdropAnimation = Object(_animation_af478fe9_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    const wrapperAnimation = Object(_animation_af478fe9_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    backdropAnimation
-        .addElement(baseEl.querySelector('ion-backdrop'))
-        .fromTo('opacity', 0.01, 0.3);
-    wrapperAnimation
-        .addElement(baseEl.querySelector('.alert-wrapper'))
-        .keyframes([
-        { offset: 0, opacity: '0.01', transform: 'scale(1.1)' },
-        { offset: 1, opacity: '1', transform: 'scale(1)' }
-    ]);
-    return baseAnimation
-        .addElement(baseEl)
-        .easing('ease-in-out')
-        .duration(200)
-        .addAnimation([backdropAnimation, wrapperAnimation]);
-};
-
-/**
- * iOS Alert Leave Animation
- */
-const iosLeaveAnimation = (baseEl) => {
-    const baseAnimation = Object(_animation_af478fe9_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    const backdropAnimation = Object(_animation_af478fe9_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    const wrapperAnimation = Object(_animation_af478fe9_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    backdropAnimation
-        .addElement(baseEl.querySelector('ion-backdrop'))
-        .fromTo('opacity', 0.3, 0);
-    wrapperAnimation
-        .addElement(baseEl.querySelector('.alert-wrapper'))
-        .keyframes([
-        { offset: 0, opacity: 0.99, transform: 'scale(1)' },
-        { offset: 1, opacity: 0, transform: 'scale(0.9)' }
-    ]);
-    return baseAnimation
-        .addElement(baseEl)
-        .easing('ease-in-out')
-        .duration(200)
-        .addAnimation([backdropAnimation, wrapperAnimation]);
-};
-
-/**
- * Md Alert Enter Animation
- */
-const mdEnterAnimation = (baseEl) => {
-    const baseAnimation = Object(_animation_af478fe9_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    const backdropAnimation = Object(_animation_af478fe9_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    const wrapperAnimation = Object(_animation_af478fe9_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    backdropAnimation
-        .addElement(baseEl.querySelector('ion-backdrop'))
-        .fromTo('opacity', 0.01, 0.32);
-    wrapperAnimation
-        .addElement(baseEl.querySelector('.alert-wrapper'))
-        .keyframes([
-        { offset: 0, opacity: '0.01', transform: 'scale(0.9)' },
-        { offset: 1, opacity: '1', transform: 'scale(1)' }
-    ]);
-    return baseAnimation
-        .addElement(baseEl)
-        .easing('ease-in-out')
-        .duration(150)
-        .addAnimation([backdropAnimation, wrapperAnimation]);
-};
-
-/**
- * Md Alert Leave Animation
- */
-const mdLeaveAnimation = (baseEl) => {
-    const baseAnimation = Object(_animation_af478fe9_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    const backdropAnimation = Object(_animation_af478fe9_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    const wrapperAnimation = Object(_animation_af478fe9_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
-    backdropAnimation
-        .addElement(baseEl.querySelector('ion-backdrop'))
-        .fromTo('opacity', 0.32, 0);
-    wrapperAnimation
-        .addElement(baseEl.querySelector('.alert-wrapper'))
-        .fromTo('opacity', 0.99, 0);
-    return baseAnimation
-        .addElement(baseEl)
-        .easing('ease-in-out')
-        .duration(150)
-        .addAnimation([backdropAnimation, wrapperAnimation]);
-};
-
-const Alert = class {
-    constructor(hostRef) {
-        Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.processedInputs = [];
-        this.processedButtons = [];
-        this.presented = false;
-        this.mode = Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-        /**
-         * If `true`, the keyboard will be automatically dismissed when the overlay is presented.
-         */
-        this.keyboardClose = true;
-        /**
-         * Array of buttons to be added to the alert.
-         */
-        this.buttons = [];
-        /**
-         * Array of input to show in the alert.
-         */
-        this.inputs = [];
-        /**
-         * If `true`, the alert will be dismissed when the backdrop is clicked.
-         */
-        this.backdropDismiss = true;
-        /**
-         * If `true`, the alert will be translucent.
-         * Only applies when the mode is `"ios"` and the device supports
-         * [`backdrop-filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter#Browser_compatibility).
-         */
-        this.translucent = false;
-        /**
-         * If `true`, the alert will animate.
-         */
-        this.animated = true;
-        this.onBackdropTap = () => {
-            this.dismiss(undefined, _overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_4__["B"]);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "create", function() { return create; });
+const transitionEnd = (el, callback) => {
+    let unRegTrans;
+    const opts = { passive: true };
+    const unregister = () => {
+        if (unRegTrans) {
+            unRegTrans();
+        }
+    };
+    const onTransitionEnd = (ev) => {
+        if (el === ev.target) {
+            unregister();
+            callback(ev);
+        }
+    };
+    if (el) {
+        el.addEventListener('webkitTransitionEnd', onTransitionEnd, opts);
+        el.addEventListener('transitionend', onTransitionEnd, opts);
+        unRegTrans = () => {
+            el.removeEventListener('webkitTransitionEnd', onTransitionEnd, opts);
+            el.removeEventListener('transitionend', onTransitionEnd, opts);
         };
-        this.dispatchCancelHandler = (ev) => {
-            const role = ev.detail.role;
-            if (Object(_overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_4__["i"])(role)) {
-                const cancelButton = this.processedButtons.find(b => b.role === 'cancel');
-                this.callButtonHandler(cancelButton);
-            }
-        };
-        Object(_overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_4__["d"])(this.el);
-        this.didPresent = Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionAlertDidPresent", 7);
-        this.willPresent = Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionAlertWillPresent", 7);
-        this.willDismiss = Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionAlertWillDismiss", 7);
-        this.didDismiss = Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionAlertDidDismiss", 7);
     }
-    buttonsChanged() {
-        const buttons = this.buttons;
-        this.processedButtons = buttons.map(btn => {
-            return (typeof btn === 'string')
-                ? { text: btn, role: btn.toLowerCase() === 'cancel' ? 'cancel' : undefined }
-                : btn;
+    return unregister;
+};
+
+const CSS_VALUE_REGEX = /(^-?\d*\.?\d*)(.*)/;
+const DURATION_MIN = 32;
+const TRANSITION_END_FALLBACK_PADDING_MS = 400;
+const TRANSFORM_PROPS = {
+    'translateX': 1,
+    'translateY': 1,
+    'translateZ': 1,
+    'scale': 1,
+    'scaleX': 1,
+    'scaleY': 1,
+    'scaleZ': 1,
+    'rotate': 1,
+    'rotateX': 1,
+    'rotateY': 1,
+    'rotateZ': 1,
+    'skewX': 1,
+    'skewY': 1,
+    'perspective': 1
+};
+const win = typeof window !== 'undefined' ? window : {};
+const raf = win.requestAnimationFrame
+    ? win.requestAnimationFrame.bind(win)
+    : (f) => f(Date.now());
+class Animator {
+    constructor() {
+        this._hasDur = false;
+        this._hasTweenEffect = false;
+        this._isAsync = false;
+        this._isReverse = false;
+        this._destroyed = false;
+        this.hasChildren = false;
+        this.isPlaying = false;
+        this.hasCompleted = false;
+    }
+    addElement(el) {
+        if (el != null) {
+            if (el.length > 0) {
+                for (let i = 0; i < el.length; i++) {
+                    this._addEl(el[i]);
+                }
+            }
+            else {
+                this._addEl(el);
+            }
+        }
+        return this;
+    }
+    /**
+     * NO DOM
+     */
+    _addEl(el) {
+        if (el.nodeType === 1) {
+            (this._elements = this._elements || []).push(el);
+        }
+    }
+    /**
+     * Add a child animation to this animation.
+     */
+    add(childAnimation) {
+        childAnimation.parent = this;
+        this.hasChildren = true;
+        (this._childAnimations = this._childAnimations || []).push(childAnimation);
+        return this;
+    }
+    /**
+     * Get the duration of this animation. If this animation does
+     * not have a duration, then it'll get the duration from its parent.
+     */
+    getDuration(opts) {
+        if (opts && opts.duration !== undefined) {
+            return opts.duration;
+        }
+        else if (this._duration !== undefined) {
+            return this._duration;
+        }
+        else if (this.parent) {
+            return this.parent.getDuration();
+        }
+        return 0;
+    }
+    /**
+     * Returns if the animation is a root one.
+     */
+    isRoot() {
+        return !this.parent;
+    }
+    /**
+     * Set the duration for this animation.
+     */
+    duration(milliseconds) {
+        this._duration = milliseconds;
+        return this;
+    }
+    /**
+     * Get the easing of this animation. If this animation does
+     * not have an easing, then it'll get the easing from its parent.
+     */
+    getEasing() {
+        if (this._isReverse && this._reversedEasingName !== undefined) {
+            return this._reversedEasingName;
+        }
+        return this._easingName !== undefined ? this._easingName : (this.parent && this.parent.getEasing()) || null;
+    }
+    /**
+     * Set the easing for this animation.
+     */
+    easing(name) {
+        this._easingName = name;
+        return this;
+    }
+    /**
+     * Set the easing for this reversed animation.
+     */
+    easingReverse(name) {
+        this._reversedEasingName = name;
+        return this;
+    }
+    /**
+     * Add the "from" value for a specific property.
+     */
+    from(prop, val) {
+        this._addProp('from', prop, val);
+        return this;
+    }
+    /**
+     * Add the "to" value for a specific property.
+     */
+    to(prop, val, clearProperyAfterTransition = false) {
+        const fx = this._addProp('to', prop, val);
+        if (clearProperyAfterTransition) {
+            // if this effect is a transform then clear the transform effect
+            // otherwise just clear the actual property
+            this.afterClearStyles(fx.trans ? ['transform', '-webkit-transform'] : [prop]);
+        }
+        return this;
+    }
+    /**
+     * Shortcut to add both the "from" and "to" for the same property.
+     */
+    fromTo(prop, fromVal, toVal, clearProperyAfterTransition) {
+        return this.from(prop, fromVal).to(prop, toVal, clearProperyAfterTransition);
+    }
+    /**
+     * NO DOM
+     */
+    _getProp(name) {
+        if (this._fxProperties) {
+            return this._fxProperties.find(prop => prop.effectName === name);
+        }
+        return undefined;
+    }
+    _addProp(state, prop, val) {
+        let fxProp = this._getProp(prop);
+        if (!fxProp) {
+            // first time we've see this EffectProperty
+            const shouldTrans = (TRANSFORM_PROPS[prop] === 1);
+            fxProp = {
+                effectName: prop,
+                trans: shouldTrans,
+                // add the will-change property for transforms or opacity
+                wc: (shouldTrans ? 'transform' : prop)
+            };
+            (this._fxProperties = this._fxProperties || []).push(fxProp);
+        }
+        // add from/to EffectState to the EffectProperty
+        const fxState = {
+            val,
+            num: 0,
+            effectUnit: '',
+        };
+        fxProp[state] = fxState;
+        if (typeof val === 'string' && val.indexOf(' ') < 0) {
+            const r = val.match(CSS_VALUE_REGEX);
+            if (r) {
+                const num = parseFloat(r[1]);
+                if (!isNaN(num)) {
+                    fxState.num = num;
+                }
+                fxState.effectUnit = (r[0] !== r[2] ? r[2] : '');
+            }
+        }
+        else if (typeof val === 'number') {
+            fxState.num = val;
+        }
+        return fxProp;
+    }
+    /**
+     * Add CSS class to this animation's elements
+     * before the animation begins.
+     */
+    beforeAddClass(className) {
+        (this._beforeAddClasses = this._beforeAddClasses || []).push(className);
+        return this;
+    }
+    /**
+     * Remove CSS class from this animation's elements
+     * before the animation begins.
+     */
+    beforeRemoveClass(className) {
+        (this._beforeRemoveClasses = this._beforeRemoveClasses || []).push(className);
+        return this;
+    }
+    /**
+     * Set CSS inline styles to this animation's elements
+     * before the animation begins.
+     */
+    beforeStyles(styles) {
+        this._beforeStyles = styles;
+        return this;
+    }
+    /**
+     * Clear CSS inline styles from this animation's elements
+     * before the animation begins.
+     */
+    beforeClearStyles(propertyNames) {
+        this._beforeStyles = this._beforeStyles || {};
+        for (const prop of propertyNames) {
+            this._beforeStyles[prop] = '';
+        }
+        return this;
+    }
+    /**
+     * Add a function which contains DOM reads, which will run
+     * before the animation begins.
+     */
+    beforeAddRead(domReadFn) {
+        (this._readCallbacks = this._readCallbacks || []).push(domReadFn);
+        return this;
+    }
+    /**
+     * Add a function which contains DOM writes, which will run
+     * before the animation begins.
+     */
+    beforeAddWrite(domWriteFn) {
+        (this._writeCallbacks = this._writeCallbacks || []).push(domWriteFn);
+        return this;
+    }
+    /**
+     * Add CSS class to this animation's elements
+     * after the animation finishes.
+     */
+    afterAddClass(className) {
+        (this._afterAddClasses = this._afterAddClasses || []).push(className);
+        return this;
+    }
+    /**
+     * Remove CSS class from this animation's elements
+     * after the animation finishes.
+     */
+    afterRemoveClass(className) {
+        (this._afterRemoveClasses = this._afterRemoveClasses || []).push(className);
+        return this;
+    }
+    /**
+     * Set CSS inline styles to this animation's elements
+     * after the animation finishes.
+     */
+    afterStyles(styles) {
+        this._afterStyles = styles;
+        return this;
+    }
+    /**
+     * Clear CSS inline styles from this animation's elements
+     * after the animation finishes.
+     */
+    afterClearStyles(propertyNames) {
+        this._afterStyles = this._afterStyles || {};
+        for (const prop of propertyNames) {
+            this._afterStyles[prop] = '';
+        }
+        return this;
+    }
+    /**
+     * Play the animation.
+     */
+    play(opts) {
+        // If the animation was already invalidated (it did finish), do nothing
+        if (this._destroyed) {
+            return;
+        }
+        // this is the top level animation and is in full control
+        // of when the async play() should actually kick off
+        // if there is no duration then it'll set the TO property immediately
+        // if there is a duration, then it'll stage all animations at the
+        // FROM property and transition duration, wait a few frames, then
+        // kick off the animation by setting the TO property for each animation
+        this._isAsync = this._hasDuration(opts);
+        // ensure all past transition end events have been cleared
+        this._clearAsync();
+        // recursively kicks off the correct progress step for each child animation
+        // ******** DOM WRITE ****************
+        this._playInit(opts);
+        // doubling up RAFs since this animation was probably triggered
+        // from an input event, and just having one RAF would have this code
+        // run within the same frame as the triggering input event, and the
+        // input event probably already did way too much work for one frame
+        raf(() => {
+            raf(() => {
+                this._playDomInspect(opts);
+            });
         });
     }
-    inputsChanged() {
-        const inputs = this.inputs;
-        // An alert can be created with several different inputs. Radios,
-        // checkboxes and inputs are all accepted, but they cannot be mixed.
-        const inputTypes = new Set(inputs.map(i => i.type));
-        if (inputTypes.has('checkbox') && inputTypes.has('radio')) {
-            console.warn(`Alert cannot mix input types: ${(Array.from(inputTypes.values()).join('/'))}. Please see alert docs for more info.`);
-        }
-        this.inputType = inputTypes.values().next().value;
-        this.processedInputs = inputs.map((i, index) => ({
-            type: i.type || 'text',
-            name: i.name || `${index}`,
-            placeholder: i.placeholder || '',
-            value: i.value,
-            label: i.label,
-            checked: !!i.checked,
-            disabled: !!i.disabled,
-            id: i.id || `alert-input-${this.overlayIndex}-${index}`,
-            handler: i.handler,
-            min: i.min,
-            max: i.max
-        }));
-    }
-    componentWillLoad() {
-        this.inputsChanged();
-        this.buttonsChanged();
-    }
-    /**
-     * Present the alert overlay after it has been created.
-     */
-    present() {
-        return Object(_overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_4__["e"])(this, 'alertEnter', iosEnterAnimation, mdEnterAnimation);
-    }
-    /**
-     * Dismiss the alert overlay after it has been presented.
-     *
-     * @param data Any data to emit in the dismiss events.
-     * @param role The role of the element that is dismissing the alert.
-     * This can be useful in a button handler for determining which button was
-     * clicked to dismiss the alert.
-     * Some examples include: ``"cancel"`, `"destructive"`, "selected"`, and `"backdrop"`.
-     */
-    dismiss(data, role) {
-        return Object(_overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_4__["f"])(this, data, role, 'alertLeave', iosLeaveAnimation, mdLeaveAnimation);
-    }
-    /**
-     * Returns a promise that resolves when the alert did dismiss.
-     */
-    onDidDismiss() {
-        return Object(_overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_4__["g"])(this.el, 'ionAlertDidDismiss');
-    }
-    /**
-     * Returns a promise that resolves when the alert will dismiss.
-     */
-    onWillDismiss() {
-        return Object(_overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_4__["g"])(this.el, 'ionAlertWillDismiss');
-    }
-    rbClick(selectedInput) {
-        for (const input of this.processedInputs) {
-            input.checked = input === selectedInput;
-        }
-        this.activeId = selectedInput.id;
-        Object(_overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_4__["s"])(selectedInput.handler, selectedInput);
-        this.el.forceUpdate();
-    }
-    cbClick(selectedInput) {
-        selectedInput.checked = !selectedInput.checked;
-        Object(_overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_4__["s"])(selectedInput.handler, selectedInput);
-        this.el.forceUpdate();
-    }
-    buttonClick(button) {
-        const role = button.role;
-        const values = this.getValues();
-        if (Object(_overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_4__["i"])(role)) {
-            return this.dismiss({ values }, role);
-        }
-        const returnData = this.callButtonHandler(button, values);
-        if (returnData !== false) {
-            return this.dismiss(Object.assign({ values }, returnData), button.role);
-        }
-        return Promise.resolve(false);
-    }
-    callButtonHandler(button, data) {
-        if (button && button.handler) {
-            // a handler has been provided, execute it
-            // pass the handler the values from the inputs
-            const returnData = Object(_overlays_10640d86_js__WEBPACK_IMPORTED_MODULE_4__["s"])(button.handler, data);
-            if (returnData === false) {
-                // if the return value of the handler is false then do not dismiss
-                return false;
-            }
-            if (typeof returnData === 'object') {
-                return returnData;
-            }
-        }
-        return {};
-    }
-    getValues() {
-        if (this.processedInputs.length === 0) {
-            // this is an alert without any options/inputs at all
-            return undefined;
-        }
-        if (this.inputType === 'radio') {
-            // this is an alert with radio buttons (single value select)
-            // return the one value which is checked, otherwise undefined
-            const checkedInput = this.processedInputs.find(i => !!i.checked);
-            return checkedInput ? checkedInput.value : undefined;
-        }
-        if (this.inputType === 'checkbox') {
-            // this is an alert with checkboxes (multiple value select)
-            // return an array of all the checked values
-            return this.processedInputs.filter(i => i.checked).map(i => i.value);
-        }
-        // this is an alert with text inputs
-        // return an object of all the values with the input name as the key
-        const values = {};
-        this.processedInputs.forEach(i => {
-            values[i.name] = i.value || '';
+    playAsync(opts) {
+        return new Promise(resolve => {
+            this.onFinish(resolve, { oneTimeCallback: true, clearExistingCallbacks: true });
+            this.play(opts);
+            return this;
         });
-        return values;
     }
-    renderAlertInputs(labelledBy) {
-        switch (this.inputType) {
-            case 'checkbox': return this.renderCheckbox(labelledBy);
-            case 'radio': return this.renderRadio(labelledBy);
-            default: return this.renderInput(labelledBy);
+    playSync() {
+        // If the animation was already invalidated (it did finish), do nothing
+        if (!this._destroyed) {
+            const opts = { duration: 0 };
+            this._isAsync = false;
+            this._clearAsync();
+            this._playInit(opts);
+            this._playDomInspect(opts);
         }
     }
-    renderCheckbox(labelledby) {
-        const inputs = this.processedInputs;
-        const mode = Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-        if (inputs.length === 0) {
-            return null;
+    /**
+     * DOM WRITE
+     * RECURSION
+     */
+    _playInit(opts) {
+        // always default that an animation does not tween
+        // a tween requires that an Animation class has an element
+        // and that it has at least one FROM/TO effect
+        // and that the FROM/TO effect can tween numeric values
+        this._hasTweenEffect = false;
+        this.isPlaying = true;
+        this.hasCompleted = false;
+        this._hasDur = (this.getDuration(opts) > DURATION_MIN);
+        const children = this._childAnimations;
+        if (children) {
+            for (const child of children) {
+                // ******** DOM WRITE ****************
+                child._playInit(opts);
+            }
         }
-        return (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "alert-checkbox-group", "aria-labelledby": labelledby }, inputs.map(i => (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", { type: "button", onClick: () => this.cbClick(i), "aria-checked": `${i.checked}`, id: i.id, disabled: i.disabled, tabIndex: 0, role: "checkbox", class: {
-                'alert-tappable': true,
-                'alert-checkbox': true,
-                'alert-checkbox-button': true,
-                'ion-focusable': true,
-                'alert-checkbox-button-disabled': i.disabled || false
-            } }, Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "alert-button-inner" }, Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "alert-checkbox-icon" }, Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "alert-checkbox-inner" })), Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "alert-checkbox-label" }, i.label)), mode === 'md' && Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-ripple-effect", null))))));
-    }
-    renderRadio(labelledby) {
-        const inputs = this.processedInputs;
-        if (inputs.length === 0) {
-            return null;
+        if (this._hasDur) {
+            // if there is a duration then we want to start at step 0
+            // ******** DOM WRITE ****************
+            this._progress(0);
+            // add the will-change properties
+            // ******** DOM WRITE ****************
+            this._willChange(true);
         }
-        return (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "alert-radio-group", role: "radiogroup", "aria-labelledby": labelledby, "aria-activedescendant": this.activeId }, inputs.map(i => (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", { type: "button", onClick: () => this.rbClick(i), "aria-checked": `${i.checked}`, disabled: i.disabled, id: i.id, tabIndex: 0, class: {
-                'alert-radio-button': true,
-                'alert-tappable': true,
-                'alert-radio': true,
-                'ion-focusable': true,
-                'alert-radio-button-disabled': i.disabled || false
-            }, role: "radio" }, Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "alert-button-inner" }, Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "alert-radio-icon" }, Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "alert-radio-inner" })), Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "alert-radio-label" }, i.label)))))));
     }
-    renderInput(labelledby) {
-        const inputs = this.processedInputs;
-        if (inputs.length === 0) {
-            return null;
+    /**
+     * DOM WRITE
+     * NO RECURSION
+     * ROOT ANIMATION
+     */
+    _playDomInspect(opts) {
+        // fire off all the "before" function that have DOM READS in them
+        // elements will be in the DOM, however visibily hidden
+        // so we can read their dimensions if need be
+        // ******** DOM READ ****************
+        // ******** DOM WRITE ****************
+        this._beforeAnimation();
+        // for the root animation only
+        // set the async TRANSITION END event
+        // and run onFinishes when the transition ends
+        const dur = this.getDuration(opts);
+        if (this._isAsync) {
+            this._asyncEnd(dur, true);
         }
-        return (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "alert-input-group", "aria-labelledby": labelledby }, inputs.map(i => (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "alert-input-wrapper" }, Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("input", { placeholder: i.placeholder, value: i.value, type: i.type, min: i.min, max: i.max, onInput: e => i.value = e.target.value, id: i.id, disabled: i.disabled, tabIndex: 0, class: {
-                'alert-input': true,
-                'alert-input-disabled': i.disabled || false
-            } }))))));
+        // ******** DOM WRITE ****************
+        this._playProgress(opts);
+        if (this._isAsync && !this._destroyed) {
+            // this animation has a duration so we need another RAF
+            // for the CSS TRANSITION properties to kick in
+            raf(() => {
+                this._playToStep(1);
+            });
+        }
     }
-    renderAlertButtons() {
-        const buttons = this.processedButtons;
-        const mode = Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-        const alertButtonGroupClass = {
-            'alert-button-group': true,
-            'alert-button-group-vertical': buttons.length > 2
+    /**
+     * DOM WRITE
+     * RECURSION
+     */
+    _playProgress(opts) {
+        const children = this._childAnimations;
+        if (children) {
+            for (const child of children) {
+                // ******** DOM WRITE ****************
+                child._playProgress(opts);
+            }
+        }
+        if (this._hasDur) {
+            // set the CSS TRANSITION duration/easing
+            // ******** DOM WRITE ****************
+            this._setTrans(this.getDuration(opts), false);
+        }
+        else {
+            // this animation does not have a duration, so it should not animate
+            // just go straight to the TO properties and call it done
+            // ******** DOM WRITE ****************
+            this._progress(1);
+            // since there was no animation, immediately run the after
+            // ******** DOM WRITE ****************
+            this._setAfterStyles();
+            // this animation has no duration, so it has finished
+            // other animations could still be running
+            this._didFinish(true);
+        }
+    }
+    /**
+     * DOM WRITE
+     * RECURSION
+     */
+    _playToStep(stepValue) {
+        if (!this._destroyed) {
+            const children = this._childAnimations;
+            if (children) {
+                for (const child of children) {
+                    // ******** DOM WRITE ****************
+                    child._playToStep(stepValue);
+                }
+            }
+            if (this._hasDur) {
+                // browser had some time to render everything in place
+                // and the transition duration/easing is set
+                // now set the TO properties which will trigger the transition to begin
+                // ******** DOM WRITE ****************
+                this._progress(stepValue);
+            }
+        }
+    }
+    /**
+     * DOM WRITE
+     * NO RECURSION
+     * ROOT ANIMATION
+     */
+    _asyncEnd(dur, shouldComplete) {
+        const self = this;
+        const onTransitionEnd = () => {
+            // congrats! a successful transition completed!
+            // ensure transition end events and timeouts have been cleared
+            self._clearAsync();
+            // ******** DOM WRITE ****************
+            self._playEnd();
+            // transition finished
+            self._didFinishAll(shouldComplete, true, false);
         };
-        return (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: alertButtonGroupClass }, buttons.map(button => Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", { type: "button", class: buttonClass(button), tabIndex: 0, onClick: () => this.buttonClick(button) }, Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("span", { class: "alert-button-inner" }, button.text), mode === 'md' && Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-ripple-effect", null)))));
+        const onTransitionFallback = () => {
+            // oh noz! the transition end event didn't fire in time!
+            // instead the fallback timer when first
+            // if all goes well this fallback should never fire
+            // clear the other async end events from firing
+            self._timerId = undefined;
+            self._clearAsync();
+            // set the after styles
+            // ******** DOM WRITE ****************
+            self._playEnd(shouldComplete ? 1 : 0);
+            // transition finished
+            self._didFinishAll(shouldComplete, true, false);
+        };
+        // set the TRANSITION END event on one of the transition elements
+        self._unregisterTrnsEnd = transitionEnd(self._transEl(), onTransitionEnd);
+        // set a fallback timeout if the transition end event never fires, or is too slow
+        // transition end fallback: (animation duration + XXms)
+        self._timerId = setTimeout(onTransitionFallback, (dur + TRANSITION_END_FALLBACK_PADDING_MS));
     }
-    render() {
-        const { overlayIndex, header, subHeader } = this;
-        const mode = Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-        const hdrId = `alert-${overlayIndex}-hdr`;
-        const subHdrId = `alert-${overlayIndex}-sub-hdr`;
-        const msgId = `alert-${overlayIndex}-msg`;
-        let labelledById;
-        if (header !== undefined) {
-            labelledById = hdrId;
+    /**
+     * DOM WRITE
+     * RECURSION
+     */
+    _playEnd(stepValue) {
+        const children = this._childAnimations;
+        if (children) {
+            for (const child of children) {
+                // ******** DOM WRITE ****************
+                child._playEnd(stepValue);
+            }
         }
-        else if (subHeader !== undefined) {
-            labelledById = subHdrId;
+        if (this._hasDur) {
+            if (stepValue !== undefined) {
+                // too late to have a smooth animation, just finish it
+                // ******** DOM WRITE ****************
+                this._setTrans(0, true);
+                // ensure the ending progress step gets rendered
+                // ******** DOM WRITE ****************
+                this._progress(stepValue);
+            }
+            // set the after styles
+            // ******** DOM WRITE ****************
+            this._setAfterStyles();
+            // remove the will-change properties
+            // ******** DOM WRITE ****************
+            this._willChange(false);
         }
-        return (Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["H"], { role: "dialog", "aria-modal": "true", style: {
-                zIndex: `${20000 + overlayIndex}`,
-            }, class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_5__["g"])(this.cssClass)), { [mode]: true, 'alert-translucent': this.translucent }), onIonAlertWillDismiss: this.dispatchCancelHandler, onIonBackdropTap: this.onBackdropTap }, Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-backdrop", { tappable: this.backdropDismiss }), Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "alert-wrapper" }, Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "alert-head" }, header && Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("h2", { id: hdrId, class: "alert-title" }, header), subHeader && Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("h2", { id: subHdrId, class: "alert-sub-title" }, subHeader)), Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { id: msgId, class: "alert-message", innerHTML: Object(_index_3476b023_js__WEBPACK_IMPORTED_MODULE_6__["s"])(this.message) }), this.renderAlertInputs(labelledById), this.renderAlertButtons())));
     }
-    get el() { return Object(_core_feeeff0d_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
-    static get watchers() { return {
-        "buttons": ["buttonsChanged"],
-        "inputs": ["inputsChanged"]
-    }; }
-    static get style() { return ".sc-ion-alert-ios-h{--min-width:250px;--width:auto;--min-height:auto;--height:auto;--max-height:90%;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;left:0;right:0;top:0;bottom:0;display:-ms-flexbox;display:flex;position:fixed;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;font-family:var(--ion-font-family,inherit);contain:strict;-ms-touch-action:none;touch-action:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:1001}.overlay-hidden.sc-ion-alert-ios-h{display:none}.alert-top.sc-ion-alert-ios-h{padding-top:50px;-ms-flex-align:start;align-items:flex-start}.alert-wrapper.sc-ion-alert-ios{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;width:var(--width);min-width:var(--min-width);max-width:var(--max-width);height:var(--height);min-height:var(--min-height);max-height:var(--max-height);background:var(--background);contain:content;opacity:0;z-index:10}.alert-title.sc-ion-alert-ios{margin-top:0}.alert-sub-title.sc-ion-alert-ios, .alert-title.sc-ion-alert-ios{margin-left:0;margin-right:0;margin-bottom:0;padding-left:0;padding-right:0;padding-top:0;padding-bottom:0}.alert-sub-title.sc-ion-alert-ios{margin-top:5px;font-weight:400}.alert-message.sc-ion-alert-ios{-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-overflow-scrolling:touch;overflow-y:auto;overscroll-behavior-y:contain}.alert-checkbox-group.sc-ion-alert-ios::-webkit-scrollbar, .alert-message.sc-ion-alert-ios::-webkit-scrollbar, .alert-radio-group.sc-ion-alert-ios::-webkit-scrollbar{display:none}.alert-input.sc-ion-alert-ios{padding-left:0;padding-right:0;padding-top:10px;padding-bottom:10px;width:100%;border:0;background:inherit;font:inherit;-webkit-box-sizing:border-box;box-sizing:border-box}.alert-button-group.sc-ion-alert-ios{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;width:100%}.alert-button-group-vertical.sc-ion-alert-ios{-ms-flex-direction:column;flex-direction:column;-ms-flex-wrap:nowrap;flex-wrap:nowrap}.alert-button.sc-ion-alert-ios{display:block;border:0;font-size:14px;line-height:20px;z-index:0}.alert-button.ion-focused.sc-ion-alert-ios, .alert-tappable.ion-focused.sc-ion-alert-ios{background:var(--ion-color-step-100,#e6e6e6)}.alert-button-inner.sc-ion-alert-ios{display:-ms-flexbox;display:flex;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-ms-flex-negative:0;flex-shrink:0;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;width:100%;height:100%}.alert-checkbox-button-disabled.sc-ion-alert-ios .alert-button-inner.sc-ion-alert-ios, .alert-input-disabled.sc-ion-alert-ios, .alert-radio-button-disabled.sc-ion-alert-ios .alert-button-inner.sc-ion-alert-ios{cursor:default;opacity:.5;pointer-events:none}.alert-tappable.sc-ion-alert-ios{margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding-left:0;padding-right:0;padding-top:0;padding-bottom:0;display:-ms-flexbox;display:flex;width:100%;border:0;background:transparent;font-size:inherit;line-height:normal;text-align:start;-webkit-appearance:none;-moz-appearance:none;appearance:none;contain:strict}.alert-button.sc-ion-alert-ios, .alert-checkbox.sc-ion-alert-ios, .alert-input.sc-ion-alert-ios, .alert-radio.sc-ion-alert-ios{outline:none}.alert-checkbox-icon.sc-ion-alert-ios, .alert-checkbox-inner.sc-ion-alert-ios, .alert-radio-icon.sc-ion-alert-ios{-webkit-box-sizing:border-box;box-sizing:border-box}.sc-ion-alert-ios-h{--background:var(--ion-overlay-background-color,var(--ion-color-step-100,#f9f9f9));--max-width:270px;font-size:14px}.alert-wrapper.sc-ion-alert-ios{border-radius:13px;-webkit-box-shadow:none;box-shadow:none;overflow:hidden}\@supports ((-webkit-backdrop-filter:blur(0)) or (backdrop-filter:blur(0))){.alert-translucent.sc-ion-alert-ios-h .alert-wrapper.sc-ion-alert-ios{background:rgba(var(--ion-background-color-rgb,255,255,255),.9);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px)}}.alert-head.sc-ion-alert-ios{padding-left:16px;padding-right:16px;padding-top:12px;padding-bottom:7px;text-align:center}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.alert-head.sc-ion-alert-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:16px;padding-inline-start:16px;-webkit-padding-end:16px;padding-inline-end:16px}}.alert-title.sc-ion-alert-ios{margin-top:8px;color:var(--ion-text-color,#000);font-size:17px;font-weight:600}.alert-sub-title.sc-ion-alert-ios{color:var(--ion-color-step-600,#666);font-size:14px}.alert-input-group.sc-ion-alert-ios, .alert-message.sc-ion-alert-ios{padding-left:16px;padding-right:16px;padding-top:0;padding-bottom:21px;color:var(--ion-text-color,#000);font-size:13px;text-align:center}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.alert-input-group.sc-ion-alert-ios, .alert-message.sc-ion-alert-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:16px;padding-inline-start:16px;-webkit-padding-end:16px;padding-inline-end:16px}}.alert-message.sc-ion-alert-ios{max-height:240px}.alert-message.sc-ion-alert-ios:empty{padding-left:0;padding-right:0;padding-top:0;padding-bottom:12px}.alert-input.sc-ion-alert-ios{border-radius:4px;margin-top:10px;padding-left:6px;padding-right:6px;padding-top:6px;padding-bottom:6px;border:.55px solid var(--ion-color-step-250,#bfbfbf);background-color:var(--ion-background-color,#fff);-webkit-appearance:none;-moz-appearance:none;appearance:none}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.alert-input.sc-ion-alert-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:6px;padding-inline-start:6px;-webkit-padding-end:6px;padding-inline-end:6px}}.alert-input.sc-ion-alert-ios::-webkit-input-placeholder{color:var(--ion-placeholder-color,var(--ion-color-step-400,#999));font-family:inherit;font-weight:inherit}.alert-input.sc-ion-alert-ios::-moz-placeholder{color:var(--ion-placeholder-color,var(--ion-color-step-400,#999));font-family:inherit;font-weight:inherit}.alert-input.sc-ion-alert-ios:-ms-input-placeholder{color:var(--ion-placeholder-color,var(--ion-color-step-400,#999));font-family:inherit;font-weight:inherit}.alert-input.sc-ion-alert-ios::-ms-input-placeholder{color:var(--ion-placeholder-color,var(--ion-color-step-400,#999));font-family:inherit;font-weight:inherit}.alert-input.sc-ion-alert-ios::placeholder{color:var(--ion-placeholder-color,var(--ion-color-step-400,#999));font-family:inherit;font-weight:inherit}.alert-input.sc-ion-alert-ios::-ms-clear{display:none}.alert-checkbox-group.sc-ion-alert-ios, .alert-radio-group.sc-ion-alert-ios{-ms-scroll-chaining:none;overscroll-behavior:contain;max-height:240px;border-top:.55px solid rgba(var(--ion-text-color-rgb,0,0,0),.2);overflow-y:auto;-webkit-overflow-scrolling:touch}.alert-tappable.sc-ion-alert-ios{height:44px}.alert-radio-label.sc-ion-alert-ios{padding-left:13px;padding-right:13px;padding-top:13px;padding-bottom:13px;-ms-flex:1;flex:1;-ms-flex-order:0;order:0;color:var(--ion-text-color,#000);text-overflow:ellipsis;white-space:nowrap;overflow:hidden}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.alert-radio-label.sc-ion-alert-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:13px;padding-inline-start:13px;-webkit-padding-end:13px;padding-inline-end:13px}}[aria-checked=true].sc-ion-alert-ios .alert-radio-label.sc-ion-alert-ios{color:var(--ion-color-primary,#3880ff)}.alert-radio-icon.sc-ion-alert-ios{position:relative;-ms-flex-order:1;order:1;min-width:30px}[aria-checked=true].sc-ion-alert-ios .alert-radio-inner.sc-ion-alert-ios{left:7px;top:-7px;position:absolute;width:6px;height:12px;-webkit-transform:rotate(45deg);transform:rotate(45deg);border-width:2px;border-top-width:0;border-left-width:0;border-style:solid;border-color:var(--ion-color-primary,#3880ff)}[dir=rtl].sc-ion-alert-ios-h [aria-checked=true].sc-ion-alert-ios .alert-radio-inner.sc-ion-alert-ios, [dir=rtl] .sc-ion-alert-ios-h [aria-checked=true].sc-ion-alert-ios .alert-radio-inner.sc-ion-alert-ios, [dir=rtl].sc-ion-alert-ios [aria-checked=true].sc-ion-alert-ios .alert-radio-inner.sc-ion-alert-ios{left:unset;right:unset;right:7px}.alert-checkbox-label.sc-ion-alert-ios{padding-left:13px;padding-right:13px;padding-top:13px;padding-bottom:13px;-ms-flex:1;flex:1;color:var(--ion-text-color,#000);text-overflow:ellipsis;white-space:nowrap;overflow:hidden}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.alert-checkbox-label.sc-ion-alert-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:13px;padding-inline-start:13px;-webkit-padding-end:13px;padding-inline-end:13px}}.alert-checkbox-icon.sc-ion-alert-ios{border-radius:50%;margin-left:16px;margin-right:6px;margin-top:10px;margin-bottom:10px;position:relative;width:24px;height:24px;border-width:1px;border-style:solid;border-color:var(--ion-item-border-color,var(--ion-border-color,var(--ion-color-step-250,#c8c7cc)));background-color:var(--ion-item-background,var(--ion-background-color,#fff));contain:strict}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.alert-checkbox-icon.sc-ion-alert-ios{margin-left:unset;margin-right:unset;-webkit-margin-start:16px;margin-inline-start:16px;-webkit-margin-end:6px;margin-inline-end:6px}}[aria-checked=true].sc-ion-alert-ios .alert-checkbox-icon.sc-ion-alert-ios{border-color:var(--ion-color-primary,#3880ff);background-color:var(--ion-color-primary,#3880ff)}[aria-checked=true].sc-ion-alert-ios .alert-checkbox-inner.sc-ion-alert-ios{left:9px;top:4px;position:absolute;width:5px;height:12px;-webkit-transform:rotate(45deg);transform:rotate(45deg);border-width:1px;border-top-width:0;border-left-width:0;border-style:solid;border-color:var(--ion-background-color,#fff)}[dir=rtl].sc-ion-alert-ios-h [aria-checked=true].sc-ion-alert-ios .alert-checkbox-inner.sc-ion-alert-ios, [dir=rtl] .sc-ion-alert-ios-h [aria-checked=true].sc-ion-alert-ios .alert-checkbox-inner.sc-ion-alert-ios, [dir=rtl].sc-ion-alert-ios [aria-checked=true].sc-ion-alert-ios .alert-checkbox-inner.sc-ion-alert-ios{left:unset;right:unset;right:9px}.alert-button-group.sc-ion-alert-ios{margin-right:-.55px;-ms-flex-wrap:wrap;flex-wrap:wrap}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.alert-button-group.sc-ion-alert-ios{margin-right:unset;-webkit-margin-end:-.55px;margin-inline-end:-.55px}}.alert-button.sc-ion-alert-ios{margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;border-radius:0;-ms-flex:1 1 auto;flex:1 1 auto;min-width:50%;height:44px;border-top:.55px solid rgba(var(--ion-text-color-rgb,0,0,0),.2);border-right:.55px solid rgba(var(--ion-text-color-rgb,0,0,0),.2);background-color:transparent;color:var(--ion-color-primary,#3880ff);font-size:17px;overflow:hidden}[dir=rtl].sc-ion-alert-ios-h .alert-button.sc-ion-alert-ios:first-child, [dir=rtl] .sc-ion-alert-ios-h .alert-button.sc-ion-alert-ios:first-child, [dir=rtl].sc-ion-alert-ios .alert-button.sc-ion-alert-ios:first-child{border-right:0}.alert-button.sc-ion-alert-ios:last-child{border-right:0;font-weight:700}[dir=rtl].sc-ion-alert-ios-h .alert-button.sc-ion-alert-ios:last-child, [dir=rtl] .sc-ion-alert-ios-h .alert-button.sc-ion-alert-ios:last-child, [dir=rtl].sc-ion-alert-ios .alert-button.sc-ion-alert-ios:last-child{border-right:.55px solid rgba(var(--ion-text-color-rgb,0,0,0),.2)}.alert-button.activated.sc-ion-alert-ios{background-color:rgba(var(--ion-text-color-rgb,0,0,0),.1)}"; }
-};
-const buttonClass = (button) => {
-    return Object.assign({ 'alert-button': true, 'ion-focusable': true, 'ion-activatable': true }, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_5__["g"])(button.cssClass));
+    /**
+     * NO DOM
+     * RECURSION
+     */
+    _hasDuration(opts) {
+        if (this.getDuration(opts) > DURATION_MIN) {
+            return true;
+        }
+        const children = this._childAnimations;
+        if (children) {
+            for (const child of children) {
+                if (child._hasDuration(opts)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    /**
+     * NO DOM
+     * RECURSION
+     */
+    _hasDomReads() {
+        if (this._readCallbacks && this._readCallbacks.length > 0) {
+            return true;
+        }
+        const children = this._childAnimations;
+        if (children) {
+            for (const child of children) {
+                if (child._hasDomReads()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    /**
+     * Immediately stop at the end of the animation.
+     */
+    stop(stepValue = 1) {
+        // ensure all past transition end events have been cleared
+        this._clearAsync();
+        this._hasDur = true;
+        this._playEnd(stepValue);
+    }
+    /**
+     * NO DOM
+     * NO RECURSION
+     */
+    _clearAsync() {
+        if (this._unregisterTrnsEnd) {
+            this._unregisterTrnsEnd();
+        }
+        if (this._timerId) {
+            clearTimeout(this._timerId);
+        }
+        this._timerId = this._unregisterTrnsEnd = undefined;
+    }
+    /**
+     * DOM WRITE
+     * NO RECURSION
+     */
+    _progress(stepValue) {
+        // bread 'n butter
+        let val;
+        const elements = this._elements;
+        const effects = this._fxProperties;
+        if (!elements || elements.length === 0 || !effects || this._destroyed) {
+            return;
+        }
+        // flip the number if we're going in reverse
+        if (this._isReverse) {
+            stepValue = 1 - stepValue;
+        }
+        let i = 0;
+        let j = 0;
+        let finalTransform = '';
+        let fx;
+        for (i = 0; i < effects.length; i++) {
+            fx = effects[i];
+            if (fx.from && fx.to) {
+                const fromNum = fx.from.num;
+                const toNum = fx.to.num;
+                const tweenEffect = (fromNum !== toNum);
+                if (tweenEffect) {
+                    this._hasTweenEffect = true;
+                }
+                if (stepValue === 0) {
+                    // FROM
+                    val = fx.from.val;
+                }
+                else if (stepValue === 1) {
+                    // TO
+                    val = fx.to.val;
+                }
+                else if (tweenEffect) {
+                    // EVERYTHING IN BETWEEN
+                    const valNum = (((toNum - fromNum) * stepValue) + fromNum);
+                    const unit = fx.to.effectUnit;
+                    val = valNum + unit;
+                }
+                if (val !== null) {
+                    const prop = fx.effectName;
+                    if (fx.trans) {
+                        finalTransform += prop + '(' + val + ') ';
+                    }
+                    else {
+                        for (j = 0; j < elements.length; j++) {
+                            // ******** DOM WRITE ****************
+                            elements[j].style.setProperty(prop, val);
+                        }
+                    }
+                }
+            }
+        }
+        // place all transforms on the same property
+        if (finalTransform.length > 0) {
+            if (!this._isReverse && stepValue !== 1 || this._isReverse && stepValue !== 0) {
+                finalTransform += 'translateZ(0px)';
+            }
+            for (i = 0; i < elements.length; i++) {
+                // ******** DOM WRITE ****************
+                elements[i].style.setProperty('transform', finalTransform);
+                elements[i].style.setProperty('-webkit-transform', finalTransform);
+            }
+        }
+    }
+    /**
+     * DOM WRITE
+     * NO RECURSION
+     */
+    _setTrans(dur, forcedLinearEasing) {
+        // Transition is not enabled if there are not effects
+        const elements = this._elements;
+        if (!elements || elements.length === 0 || !this._fxProperties) {
+            return;
+        }
+        // set the TRANSITION properties inline on the element
+        const easing = (forcedLinearEasing ? 'linear' : this.getEasing());
+        const durString = dur + 'ms';
+        for (const { style } of elements) {
+            if (dur > 0) {
+                // ******** DOM WRITE ****************
+                style.transitionDuration = durString;
+                // each animation can have a different easing
+                if (easing !== null) {
+                    // ******** DOM WRITE ****************
+                    style.transitionTimingFunction = easing;
+                }
+            }
+            else {
+                style.transitionDuration = '0';
+            }
+        }
+    }
+    /**
+     * DOM READ
+     * DOM WRITE
+     * RECURSION
+     */
+    _beforeAnimation() {
+        // fire off all the "before" function that have DOM READS in them
+        // elements will be in the DOM, however visibily hidden
+        // so we can read their dimensions if need be
+        // ******** DOM READ ****************
+        this._fireBeforeReadFunc();
+        // ******** DOM READS ABOVE / DOM WRITES BELOW ****************
+        // fire off all the "before" function that have DOM WRITES in them
+        // ******** DOM WRITE ****************
+        this._fireBeforeWriteFunc();
+        // stage all of the before css classes and inline styles
+        // ******** DOM WRITE ****************
+        this._setBeforeStyles();
+    }
+    /**
+     * DOM WRITE
+     * RECURSION
+     */
+    _setBeforeStyles() {
+        const children = this._childAnimations;
+        if (children) {
+            for (const child of children) {
+                child._setBeforeStyles();
+            }
+        }
+        const elements = this._elements;
+        // before the animations have started
+        // only set before styles if animation is not reversed
+        if (!elements || elements.length === 0 || this._isReverse) {
+            return;
+        }
+        const addClasses = this._beforeAddClasses;
+        const removeClasses = this._beforeRemoveClasses;
+        for (const el of elements) {
+            const elementClassList = el.classList;
+            // css classes to add before the animation
+            if (addClasses) {
+                for (const c of addClasses) {
+                    // ******** DOM WRITE ****************
+                    elementClassList.add(c);
+                }
+            }
+            // css classes to remove before the animation
+            if (removeClasses) {
+                for (const c of removeClasses) {
+                    // ******** DOM WRITE ****************
+                    elementClassList.remove(c);
+                }
+            }
+            // inline styles to add before the animation
+            if (this._beforeStyles) {
+                for (const [key, value] of Object.entries(this._beforeStyles)) {
+                    // ******** DOM WRITE ****************
+                    el.style.setProperty(key, value);
+                }
+            }
+        }
+    }
+    /**
+     * DOM READ
+     * RECURSION
+     */
+    _fireBeforeReadFunc() {
+        const children = this._childAnimations;
+        if (children) {
+            for (const child of children) {
+                // ******** DOM READ ****************
+                child._fireBeforeReadFunc();
+            }
+        }
+        const readFunctions = this._readCallbacks;
+        if (readFunctions) {
+            for (const callback of readFunctions) {
+                // ******** DOM READ ****************
+                callback();
+            }
+        }
+    }
+    /**
+     * DOM WRITE
+     * RECURSION
+     */
+    _fireBeforeWriteFunc() {
+        const children = this._childAnimations;
+        if (children) {
+            for (const child of children) {
+                // ******** DOM WRITE ****************
+                child._fireBeforeWriteFunc();
+            }
+        }
+        const writeFunctions = this._writeCallbacks;
+        if (writeFunctions) {
+            for (const callback of writeFunctions) {
+                // ******** DOM WRITE ****************
+                callback();
+            }
+        }
+    }
+    /**
+     * DOM WRITE
+     */
+    _setAfterStyles() {
+        const elements = this._elements;
+        if (!elements) {
+            return;
+        }
+        for (const el of elements) {
+            const elementClassList = el.classList;
+            // remove the transition duration/easing
+            // ******** DOM WRITE ****************
+            el.style.transitionDuration = el.style.transitionTimingFunction = '';
+            if (this._isReverse) {
+                // finished in reverse direction
+                // css classes that were added before the animation should be removed
+                const beforeAddClasses = this._beforeAddClasses;
+                if (beforeAddClasses) {
+                    for (const c of beforeAddClasses) {
+                        elementClassList.remove(c);
+                    }
+                }
+                // css classes that were removed before the animation should be added
+                const beforeRemoveClasses = this._beforeRemoveClasses;
+                if (beforeRemoveClasses) {
+                    for (const c of beforeRemoveClasses) {
+                        elementClassList.add(c);
+                    }
+                }
+                // inline styles that were added before the animation should be removed
+                const beforeStyles = this._beforeStyles;
+                if (beforeStyles) {
+                    for (const propName of Object.keys(beforeStyles)) {
+                        // ******** DOM WRITE ****************
+                        el.style.removeProperty(propName);
+                    }
+                }
+            }
+            else {
+                // finished in forward direction
+                // css classes to add after the animation
+                const afterAddClasses = this._afterAddClasses;
+                if (afterAddClasses) {
+                    for (const c of afterAddClasses) {
+                        // ******** DOM WRITE ****************
+                        elementClassList.add(c);
+                    }
+                }
+                // css classes to remove after the animation
+                const afterRemoveClasses = this._afterRemoveClasses;
+                if (afterRemoveClasses) {
+                    for (const c of afterRemoveClasses) {
+                        // ******** DOM WRITE ****************
+                        elementClassList.remove(c);
+                    }
+                }
+                // inline styles to add after the animation
+                const afterStyles = this._afterStyles;
+                if (afterStyles) {
+                    for (const [key, value] of Object.entries(afterStyles)) {
+                        el.style.setProperty(key, value);
+                    }
+                }
+            }
+        }
+    }
+    /**
+     * DOM WRITE
+     * NO RECURSION
+     */
+    _willChange(addWillChange) {
+        let wc;
+        const effects = this._fxProperties;
+        let willChange;
+        if (addWillChange && effects) {
+            wc = [];
+            for (const effect of effects) {
+                const propWC = effect.wc;
+                if (propWC === 'webkitTransform') {
+                    wc.push('transform', '-webkit-transform');
+                }
+                else if (propWC !== undefined) {
+                    wc.push(propWC);
+                }
+            }
+            willChange = wc.join(',');
+        }
+        else {
+            willChange = '';
+        }
+        const elements = this._elements;
+        if (elements) {
+            for (const el of elements) {
+                // ******** DOM WRITE ****************
+                el.style.setProperty('will-change', willChange);
+            }
+        }
+    }
+    /**
+     * Start the animation with a user controlled progress.
+     */
+    progressStart() {
+        // ensure all past transition end events have been cleared
+        this._clearAsync();
+        // ******** DOM READ/WRITE ****************
+        this._beforeAnimation();
+        // ******** DOM WRITE ****************
+        this._progressStart();
+    }
+    /**
+     * DOM WRITE
+     * RECURSION
+     */
+    _progressStart() {
+        const children = this._childAnimations;
+        if (children) {
+            for (const child of children) {
+                // ******** DOM WRITE ****************
+                child._progressStart();
+            }
+        }
+        // force no duration, linear easing
+        // ******** DOM WRITE ****************
+        this._setTrans(0, true);
+        // ******** DOM WRITE ****************
+        this._willChange(true);
+    }
+    /**
+     * Set the progress step for this animation.
+     * progressStep() is not debounced, so it should not be called faster than 60FPS.
+     */
+    progressStep(stepValue) {
+        // only update if the last update was more than 16ms ago
+        stepValue = Math.min(1, Math.max(0, stepValue));
+        const children = this._childAnimations;
+        if (children) {
+            for (const child of children) {
+                // ******** DOM WRITE ****************
+                child.progressStep(stepValue);
+            }
+        }
+        // ******** DOM WRITE ****************
+        this._progress(stepValue);
+    }
+    /**
+     * End the progress animation.
+     */
+    progressEnd(shouldComplete, currentStepValue, dur = -1) {
+        if (this._isReverse) {
+            // if the animation is going in reverse then
+            // flip the step value: 0 becomes 1, 1 becomes 0
+            currentStepValue = 1 - currentStepValue;
+        }
+        const stepValue = shouldComplete ? 1 : 0;
+        const diff = Math.abs(currentStepValue - stepValue);
+        if (dur < 0) {
+            dur = this._duration || 0;
+        }
+        else if (diff < 0.05) {
+            dur = 0;
+        }
+        this._isAsync = (dur > 30);
+        this._progressEnd(shouldComplete, stepValue, dur, this._isAsync);
+        if (this._isAsync) {
+            // for the root animation only
+            // set the async TRANSITION END event
+            // and run onFinishes when the transition ends
+            // ******** DOM WRITE ****************
+            this._asyncEnd(dur, shouldComplete);
+            // this animation has a duration so we need another RAF
+            // for the CSS TRANSITION properties to kick in
+            if (!this._destroyed) {
+                raf(() => {
+                    this._playToStep(stepValue);
+                });
+            }
+        }
+    }
+    /**
+     * DOM WRITE
+     * RECURSION
+     */
+    _progressEnd(shouldComplete, stepValue, dur, isAsync) {
+        const children = this._childAnimations;
+        if (children) {
+            for (const child of children) {
+                // ******** DOM WRITE ****************
+                child._progressEnd(shouldComplete, stepValue, dur, isAsync);
+            }
+        }
+        if (!isAsync) {
+            // stop immediately
+            // set all the animations to their final position
+            // ******** DOM WRITE ****************
+            this._progress(stepValue);
+            this._willChange(false);
+            this._setAfterStyles();
+            this._didFinish(shouldComplete);
+        }
+        else {
+            // animate it back to it's ending position
+            this.isPlaying = true;
+            this.hasCompleted = false;
+            this._hasDur = true;
+            // ******** DOM WRITE ****************
+            this._willChange(true);
+            this._setTrans(dur, false);
+        }
+    }
+    /**
+     * Add a callback to fire when the animation has finished.
+     */
+    onFinish(callback, opts) {
+        if (opts && opts.clearExistingCallbacks) {
+            this._onFinishCallbacks = this._onFinishOneTimeCallbacks = undefined;
+        }
+        if (opts && opts.oneTimeCallback) {
+            this._onFinishOneTimeCallbacks = this._onFinishOneTimeCallbacks || [];
+            this._onFinishOneTimeCallbacks.push(callback);
+        }
+        else {
+            this._onFinishCallbacks = this._onFinishCallbacks || [];
+            this._onFinishCallbacks.push(callback);
+        }
+        return this;
+    }
+    /**
+     * NO DOM
+     * RECURSION
+     */
+    _didFinishAll(hasCompleted, finishAsyncAnimations, finishNoDurationAnimations) {
+        const children = this._childAnimations;
+        if (children) {
+            for (const child of children) {
+                child._didFinishAll(hasCompleted, finishAsyncAnimations, finishNoDurationAnimations);
+            }
+        }
+        if (finishAsyncAnimations && this._isAsync || finishNoDurationAnimations && !this._isAsync) {
+            this._didFinish(hasCompleted);
+        }
+    }
+    /**
+     * NO RECURSION
+     */
+    _didFinish(hasCompleted) {
+        this.isPlaying = false;
+        this.hasCompleted = hasCompleted;
+        if (this._onFinishCallbacks) {
+            // run all finish callbacks
+            for (const callback of this._onFinishCallbacks) {
+                callback(this);
+            }
+        }
+        if (this._onFinishOneTimeCallbacks) {
+            // run all "onetime" finish callbacks
+            for (const callback of this._onFinishOneTimeCallbacks) {
+                callback(this);
+            }
+            this._onFinishOneTimeCallbacks.length = 0;
+        }
+    }
+    /**
+     * Reverse the animation.
+     */
+    reverse(shouldReverse = true) {
+        const children = this._childAnimations;
+        if (children) {
+            for (const child of children) {
+                child.reverse(shouldReverse);
+            }
+        }
+        this._isReverse = !!shouldReverse;
+        return this;
+    }
+    /**
+     * Recursively destroy this animation and all child animations.
+     */
+    destroy() {
+        this._didFinish(false);
+        this._destroyed = true;
+        const children = this._childAnimations;
+        if (children) {
+            for (const child of children) {
+                child.destroy();
+            }
+        }
+        this._clearAsync();
+        if (this._elements) {
+            this._elements.length = 0;
+        }
+        if (this._readCallbacks) {
+            this._readCallbacks.length = 0;
+        }
+        if (this._writeCallbacks) {
+            this._writeCallbacks.length = 0;
+        }
+        this.parent = undefined;
+        if (this._childAnimations) {
+            this._childAnimations.length = 0;
+        }
+        if (this._onFinishCallbacks) {
+            this._onFinishCallbacks.length = 0;
+        }
+        if (this._onFinishOneTimeCallbacks) {
+            this._onFinishOneTimeCallbacks.length = 0;
+        }
+    }
+    /**
+     * NO DOM
+     */
+    _transEl() {
+        // get the lowest level element that has an Animator
+        const children = this._childAnimations;
+        if (children) {
+            for (const child of children) {
+                const targetEl = child._transEl();
+                if (targetEl) {
+                    return targetEl;
+                }
+            }
+        }
+        return (this._hasTweenEffect &&
+            this._hasDur &&
+            this._elements !== undefined &&
+            this._elements.length > 0 ?
+            this._elements[0] : null);
+    }
+}
+
+const create = (animationBuilder, baseEl, opts) => {
+    if (animationBuilder) {
+        return animationBuilder(Animator, baseEl, opts);
+    }
+    return Promise.resolve(new Animator());
 };
 
 
