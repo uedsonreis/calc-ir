@@ -10,6 +10,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Tabela } from 'src/model/tabela';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
     declarations: [AppComponent],
@@ -21,7 +23,8 @@ import { Tabela } from 'src/model/tabela';
             name: '__mydb',
             driverOrder: ['indexeddb', 'sqlite', 'websql']
         }),
-        AppRoutingModule
+        AppRoutingModule,
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     ],
     providers: [
         StatusBar, SplashScreen, Tabela,
