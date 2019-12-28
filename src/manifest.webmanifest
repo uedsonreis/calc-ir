@@ -1,36 +1,36 @@
 {
-  "name": "CalcIR",
-  "short_name": "Calc IR",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
-  "display": "standalone",
-  "scope": "/",
-  "start_url": "/",
-  "icons": [
-    {
-      "src": "assets/resources/icon/android/drawable-hdpi-icon.png",
-      "sizes": "72x72",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/resources/icon/android/drawable-xhdpi-icon.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/resources/icon/android/drawable-xxhdpi-icon.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/resources/icon/android/drawable-xxxhdpi-icon.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/resources/icon_512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+    "name": "CalcIR",
+    "short_name": "Calc IR",
+    "theme_color": "#1976d2",
+    "background_color": "#fafafa",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "assets/resources/android/icon/drawable-hdpi-icon.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/resources/android/icon/drawable-xhdpi-icon.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/resources/android/icon/drawable-xxhdpi-icon.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/resources/android/icon/drawable-xxxhdpi-icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/resources/icon_512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
 }
