@@ -1,7 +1,7 @@
 {
     "name": "Calc IR",
     "short_name": "Calc IR",
-    "theme_color": "#1976d2",
+    "theme_color": "#222428",
     "background_color": "#fafafa",
     "display": "standalone",
     "scope": "/",
