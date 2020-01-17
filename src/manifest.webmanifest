@@ -1,6 +1,6 @@
 {
-    "name": "Calc IR",
-    "short_name": "Calc IR",
+    "name": "CalcIR",
+    "short_name": "CalcIR",
     "theme_color": "#222428",
     "background_color": "#fafafa",
     "display": "standalone",

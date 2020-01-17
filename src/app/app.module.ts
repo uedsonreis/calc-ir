@@ -14,7 +14,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [ AppComponent ],
     entryComponents: [],
     imports: [
         BrowserModule,
@@ -30,6 +30,6 @@ import { environment } from '../environments/environment';
         StatusBar, SplashScreen, Tabela,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [ AppComponent ]
 })
 export class AppModule {}
