@@ -24,7 +24,7 @@ import { environment } from '../environments/environment';
             driverOrder: ['indexeddb', 'sqlite', 'websql']
         }),
         AppRoutingModule,
-        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerImmediately' })
     ],
     providers: [
         StatusBar, SplashScreen, Tabela,
